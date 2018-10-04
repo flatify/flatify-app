@@ -1,0 +1,6 @@
+# Redirect default Netlify subdomain to primary domain
+https://nostalgic-murdock-ea6c68.netlify.com/* https://flatify.app/:splat 301!
+
+# Redirect all requests to the angular app
+/*  /index.html 200
+
