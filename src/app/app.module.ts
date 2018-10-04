@@ -16,7 +16,7 @@ import { PublicModule } from './public/public.module';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'app' }
+  { path: '', pathMatch: 'full', redirectTo: 'hello' }
 ];
 
 @NgModule({
