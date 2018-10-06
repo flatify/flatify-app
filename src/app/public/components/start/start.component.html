@@ -2,8 +2,20 @@
   <h1>Hallo!</h1>
   <p>Um flatify zu benutzen musst du dich mit deinem google account anmelden. Sobald wir wissen wer du bist,
     koennen wirm uns um die WG kuemmern in der du wohnst.</p>
-  <button mat-stroked-button>
-    <mat-icon svgIcon="google-color"></mat-icon>
-    &nbsp;Login mit google
+  <button (click)="reloadPage()" *ngIf="loginError$ | async; else login" mat-stroked-button>
+    Nochmal versuchen
   </button>
+  <ng-template #login>
+    <button (click)="startLogin()" [disabled]="singingIn$ | async " mat-stroked-button>
+      <mat-icon svgIcon="google-color"></mat-icon>
+      &nbsp;Login mit google
+    </button>
+  </ng-template>
+  <div *ngIf="singingIn$ | async" class="progress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <p class="mat-caption">Bitte schliesse den Login Vorgang im Popup ab</p>
+  </div>
+  <div *ngIf="loginError$ | async" class="error">
+    <p class="mat-caption">Es ist etwas schief gelaufen</p>
+  </div>
 </mat-dialog-content>

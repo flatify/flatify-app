@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatDialogModule, MatIconModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatIconModule, MatProgressBarModule, MatToolbarModule } from '@angular/material';
 
 const matModules = [
   MatToolbarModule,
   MatButtonModule,
   MatDialogModule,
-  MatIconModule
+  MatIconModule,
+  MatProgressBarModule
 ];
 const sharedModules = [...matModules, FlexLayoutModule];
 

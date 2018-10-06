@@ -1,0 +1,14 @@
+.progress {
+  margin-top: 12px;
+}
+
+.error {
+  margin-top: 12px;
+  margin-bottom: 17px;
+}
+
+button {
+  &:last-child {
+    margin-bottom: 49px;
+  }
+}
