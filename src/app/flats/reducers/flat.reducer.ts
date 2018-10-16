@@ -1,6 +1,6 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Flat } from '../models/flat.model';
-import { FlatActions, FlatActionTypes } from '../actions/flat.actions';
+import { FlatActionTypes } from '@flatify/flats/actions/flat.actions';
 
 export interface State extends EntityState<Flat> {
   // additional entities state properties
