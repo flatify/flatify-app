@@ -1,6 +1,6 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Flat } from '../models/flat.model';
-import { FlatActionTypes } from '@flatify/flats/actions/flat.actions';
+import { FlatActionsUnion, FlatActionTypes } from '@flatify/flats/actions/flat.actions';
 
 export interface State extends EntityState<Flat> {
   // additional entities state properties
@@ -14,7 +14,7 @@ export const initialState: State = adapter.getInitialState({
 
 export function reducer(
   state = initialState,
-  action: FlatActions
+  action: FlatActionsUnion
 ): State {
   switch (action.type) {
     case FlatActionTypes.AddFlat: {
