@@ -47,4 +47,5 @@ export const getAuthState = createFeatureSelector<State, fromAuth.State>(
 );
 
 export const getAuthLoading = createSelector(getAuthState, fromAuth.getLoading);
+export const isLoggedIn = createSelector(getAuthState, fromAuth.isLoggedIn);
 export const hasAuthError = createSelector(getAuthState, fromAuth.hasError);

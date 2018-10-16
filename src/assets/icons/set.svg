@@ -13,4 +13,41 @@
             d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 34.511719 30.238281 33.070313 32.164063 31.214844 33.570313 C 31.21875 33.570313 31.21875 33.570313 31.21875 33.570313 L 37.410156 38.808594 C 36.972656 39.203125 44 34 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z "/>
     </g>
   </svg>
+  <svg id="top-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
+      d="M 12 0.9921875 L 2.9921875 6.2480469 C 2.3788628 6.6056531 2 7.2646798 2 7.9746094 L 2 18 C 2 19.093063 2.9069372 20 4 20 L 20 20 C 21.093063 20 22 19.093063 22 18 L 22 7.9746094 C 22 7.2646798 21.621137 6.6056531 21.007812 6.2480469 L 12 0.9921875 z M 12 3.3085938 L 20 7.9746094 L 20 18 L 4 18 L 4 7.9746094 L 12 3.3085938 z M 8 8 L 8 10 L 16 10 L 16 8 L 8 8 z M 8 11 L 8 13 L 16 13 L 16 11 L 8 11 z M 8 14 L 8 16 L 16 16 L 16 14 L 8 14 z"
+      font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"/>
+  </svg>
+  <svg id="broom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      d="M 11 1 L 11 9 L 7.7167969 9 C 6.7297969 9 5.8882812 9.7193125 5.7382812 10.695312 L 4 22 L 20 22 L 18.261719 10.695312 C 18.111719 9.7193125 17.270203 9 16.283203 9 L 13 9 L 13 1 L 11 1 z M 7.7167969 11 L 16.283203 11 L 16.591797 13 L 7.4082031 13 L 7.7167969 11 z M 7.0996094 15 L 16.900391 15 L 17.669922 20 L 14.857422 20 L 14 17 L 13.572266 20 L 10.570312 20 L 10 18 L 9.7148438 20 L 6.3300781 20 L 7.0996094 15 z"/>
+  </svg>
+  <svg id="money" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      d="M 19.625 2.0097656 C 19.496406 1.990875 19.362266 1.9965 19.228516 2.03125 L 3.9902344 6 L 11.927734 6 L 17.884766 4.4492188 C 18.137766 4.8212187 18.543188 5.0606094 18.992188 5.0996094 L 19.228516 6 L 21.294922 6 L 20.447266 2.7480469 C 20.343016 2.3475469 20.010781 2.0664375 19.625 2.0097656 z M 3 8 C 2.448 8 2 8.448 2 9 L 2 19 C 2 19.552 2.448 20 3 20 L 21 20 C 21.552 20 22 19.552 22 19 L 22 9 C 22 8.448 21.552 8 21 8 L 3 8 z M 4.9121094 10 L 19.087891 10 A 1.5 1.5 0 0 0 20 10.912109 L 20 17.087891 A 1.5 1.5 0 0 0 19.087891 18 L 4.9121094 18 A 1.5 1.5 0 0 0 4 17.087891 L 4 10.912109 A 1.5 1.5 0 0 0 4.9121094 10 z M 12 11 A 3 3 0 0 0 9 14 A 3 3 0 0 0 12 17 A 3 3 0 0 0 15 14 A 3 3 0 0 0 12 11 z M 7 13 C 6.448 13 6 13.447 6 14 C 6 14.553 6.448 15 7 15 C 7.552 15 8 14.553 8 14 C 8 13.447 7.552 13 7 13 z M 17 13 C 16.448 13 16 13.447 16 14 C 16 14.553 16.448 15 17 15 C 17.552 15 18 14.553 18 14 C 18 13.447 17.552 13 17 13 z"/>
+  </svg>
+  <svg id="shutdown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      d="M 11 2 L 11 12 L 13 12 L 13 2 L 11 2 z M 9 2.4589844 C 4.943 3.7339844 2 7.523 2 12 C 2 17.523 6.477 22 12 22 C 17.523 22 22 17.523 22 12 C 22 7.523 19.057 3.7339844 15 2.4589844 L 15 4.5878906 C 17.931 5.7748906 20 8.644 20 12 C 20 16.418 16.418 20 12 20 C 7.582 20 4 16.418 4 12 C 4 8.643 6.069 5.7748906 9 4.5878906 L 9 2.4589844 z"/>
+  </svg>
+  <svg id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
+      d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 11 21 L 11 15 L 13 15 L 13 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z M 12 4.7910156 L 18 10.191406 L 18 11 L 18 19 L 15 19 L 15 13 L 9 13 L 9 19 L 6 19 L 6 10.191406 L 12 4.7910156 z"
+      font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"/>
+  </svg>
+  <svg id="house" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      d="M 7 3 L 2 10 L 3 10 L 3 21 L 21 21 L 21 10 L 22 10 L 17 3 L 7 3 z M 10.886719 5 L 15.970703 5 L 18.113281 8 L 13.029297 8 L 10.886719 5 z M 8.5 5.0996094 L 12 10 L 19 10 L 19 19 L 11 19 L 11 13 L 7 13 L 7 19 L 5 19 L 5 10 L 8.5 5.0996094 z M 13 13 L 13 17 L 17 17 L 17 13 L 13 13 z"/>
+  </svg>
+  <svg id="add-new" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
+      d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 5 C 21 3.9069372 20.093063 3 19 3 L 5 3 z M 5 5 L 19 5 L 19 19 L 5 19 L 5 5 z M 11 7 L 11 11 L 7 11 L 7 13 L 11 13 L 11 17 L 13 17 L 13 13 L 17 13 L 17 11 L 13 11 L 13 7 L 11 7 z"
+      font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"/>
+  </svg>
+  <svg id="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path d="M 11 3 L 11 11 L 3 11 L 3 13 L 11 13 L 11 21 L 13 21 L 13 13 L 21 13 L 21 11 L 13 11 L 13 3 L 11 3 z"/>
+  </svg>
 </svg>

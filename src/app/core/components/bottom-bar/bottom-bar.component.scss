@@ -1,0 +1,16 @@
+@import "~@angular/material/theming";
+
+mat-toolbar {
+  height: 4rem;
+  padding: 0;
+  @include mat-elevation(4);
+  .menu-item {
+    span {
+      line-height: 1.5;
+    }
+    mat-icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}

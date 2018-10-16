@@ -1,0 +1,20 @@
+<mat-toolbar fxLayout="row" fxLayoutAlign="start stretch">
+  <button mat-button class="menu-item" fxFlex (click)="menuClick.emit()">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon svgIcon="top-menu"></mat-icon>
+      <span>Menu</span>
+    </div>
+  </button>
+  <button mat-button class="menu-item" fxFlex>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon svgIcon="money"></mat-icon>
+      <span>Ausgaben</span>
+    </div>
+  </button>
+  <button mat-button class="menu-item" fxFlex>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon svgIcon="broom"></mat-icon>
+      <span>Putzplan</span>
+    </div>
+  </button>
+</mat-toolbar>

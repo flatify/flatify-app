@@ -17,14 +17,26 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthEffects } from '@flatify/core/effects/auth.effects';
+import { AuthGuard } from '@flatify/core/services/auth.guard';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MainLayoutComponent } from '@flatify/core/conatiners/main-layout/main-layout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes = [{ path: '', pathMatch: 'full', redirectTo: 'hello' }];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'hello' },
+  {
+    path: 'app', component: MainLayoutComponent, canActivate: [AuthGuard], children: [
+      { path: 'flats', loadChildren: '@flatify/flats/flats.module#FlatsModule' },
+      { path: '', pathMatch: 'full', redirectTo: 'flats' }
+    ]
+  }];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -38,6 +50,7 @@ const routes: Routes = [{ path: '', pathMatch: 'full', redirectTo: 'hello' }];
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     PublicModule,
     CoreModule
   ],
