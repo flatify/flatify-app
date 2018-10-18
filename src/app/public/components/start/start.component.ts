@@ -9,15 +9,12 @@ import { AuthActions } from '@flatify/core/actions';
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent implements OnInit {
-
   singingIn$ = this.store.pipe(select(fromRoot.getAuthLoading));
   loginError$ = this.store.pipe(select(fromRoot.hasAuthError));
 
-  constructor(private store: Store<fromRoot.State>) {
-  }
+  constructor(private store: Store<fromRoot.State>) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   startLogin() {
     this.store.dispatch(new AuthActions.StartLogin());

@@ -10,12 +10,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FlatPageComponent implements OnInit {
-
   isAssigned$: Observable<boolean>;
   mode$ = new BehaviorSubject('selection');
 
-  constructor(private store: Store<fromRoot.State>) {
-  }
+  constructor(private store: Store<fromRoot.State>) {}
 
   ngOnInit() {
     this.isAssigned$ = this.store.pipe(select(fromRoot.getIsAssignedToFlat));

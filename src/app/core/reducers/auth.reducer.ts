@@ -1,7 +1,6 @@
 import { AuthActions } from '@flatify/core/actions';
 import { auth } from 'firebase/app';
 
-
 export interface State {
   user: object | null;
   loading: boolean;
@@ -14,9 +13,11 @@ export const initialState: State = {
   error: null
 };
 
-export function reducer(state = initialState, action: AuthActions.AuthActions): State {
+export function reducer(
+  state = initialState,
+  action: AuthActions.AuthActions
+): State {
   switch (action.type) {
-
     case AuthActions.AuthActionTypes.StartLogin: {
       return {
         ...state,

@@ -5,18 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { IntroComponent } from './components/intro/intro.component';
 import { StartComponent } from './components/start/start.component';
 
-const routes: Routes = [
-  { path: 'hello', component: IntroComponent }
-];
+const routes: Routes = [{ path: 'hello', component: IntroComponent }];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
   declarations: [IntroComponent, StartComponent],
   entryComponents: [StartComponent]
 })
-export class PublicModule {
-}
+export class PublicModule {}

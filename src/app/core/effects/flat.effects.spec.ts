@@ -10,10 +10,7 @@ describe('FlatEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        FlatEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [FlatEffects, provideMockActions(() => actions$)]
     });
 
     effects = TestBed.get(FlatEffects);

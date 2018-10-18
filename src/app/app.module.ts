@@ -25,11 +25,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'hello' },
   {
-    path: 'app', component: MainLayoutComponent, canActivate: [AuthGuard], children: [
+    path: 'app',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
       { path: 'flat', loadChildren: '@flatify/flat/flat.module#FlatModule' },
       { path: '', pathMatch: 'full', redirectTo: 'flats' }
     ]
-  }];
+  }
+];
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,5 +61,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

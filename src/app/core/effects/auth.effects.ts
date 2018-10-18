@@ -9,14 +9,16 @@ import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
-
 @Injectable()
 export class AuthEffects {
-
   @Effect()
   login$ = this.actions$.pipe(
     ofType(AuthActions.AuthActionTypes.StartLogin),
-    switchMap(() => fromPromise(this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()))),
+    switchMap(() =>
+      fromPromise(
+        this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+      )
+    ),
     tap(console.log),
     map(res => {
       return {
@@ -51,6 +53,10 @@ export class AuthEffects {
     tap(() => this.router.navigateByUrl('/'))
   );
 
-  constructor(private actions$: Actions, private fireAuth: AngularFireAuth, private router: Router, private dialog: MatDialog) {
-  }
+  constructor(
+    private actions$: Actions,
+    private fireAuth: AngularFireAuth,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
 }

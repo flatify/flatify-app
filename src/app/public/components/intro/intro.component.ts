@@ -8,12 +8,9 @@ import { StartComponent } from '../start/start.component';
   styleUrls: ['./intro.component.scss']
 })
 export class IntroComponent implements OnInit {
+  constructor(private dialog: MatDialog) {}
 
-  constructor(private dialog: MatDialog) {
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openStart() {
     this.dialog.open(StartComponent);

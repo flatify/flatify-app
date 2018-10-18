@@ -6,14 +6,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./create-flat.component.scss']
 })
 export class CreateFlatComponent implements OnInit {
+  @Output()
+  createFlat = new EventEmitter();
+  @Output()
+  joinFlat = new EventEmitter();
 
-  @Output() createFlat = new EventEmitter();
-  @Output() joinFlat = new EventEmitter();
+  constructor() {}
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -11,18 +11,21 @@ import { AuthActions } from '@flatify/core/actions';
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
+  constructor(
+    private bottomSheet: MatBottomSheet,
+    private store: Store<State>
+  ) {}
 
-  constructor(private bottomSheet: MatBottomSheet, private store: Store<State>) {
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openMenu() {
-    this.bottomSheet.open(BottomMenuComponent).afterDismissed().subscribe(({ logout }) => {
-      if (logout) {
-        this.store.dispatch(new AuthActions.StartLogout());
-      }
-    });
+    this.bottomSheet
+      .open(BottomMenuComponent)
+      .afterDismissed()
+      .subscribe(({ logout }) => {
+        if (logout) {
+          this.store.dispatch(new AuthActions.StartLogout());
+        }
+      });
   }
 }

@@ -1,8 +1,7 @@
-@import "~@angular/material/theming";
-@import "../../../../theme";
+@import '~@angular/material/theming';
+@import '../../../../theme';
 
 main {
-
 }
 
 section {
@@ -15,7 +14,9 @@ section.intro {
     height: 10rem;
     margin: 0;
   }
-  h1, h2 {
+
+  h1,
+  h2 {
     margin: 0;
   }
 }

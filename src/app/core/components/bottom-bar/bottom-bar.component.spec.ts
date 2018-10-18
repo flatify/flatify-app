@@ -9,8 +9,7 @@ describe('BottomBarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BottomBarComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

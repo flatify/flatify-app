@@ -16,15 +16,13 @@ export class StartLogin implements Action {
 export class LoginSuccess implements Action {
   readonly type = AuthActionTypes.LoginSuccess;
 
-  constructor(public payload: { data: object }) {
-  }
+  constructor(public payload: { data: object }) {}
 }
 
 export class LoginFail implements Action {
   readonly type = AuthActionTypes.LoginFail;
 
-  constructor(public payload: { error: auth.Error }) {
-  }
+  constructor(public payload: { error: auth.Error }) {}
 }
 
 export class StartLogout implements Action {
@@ -35,4 +33,9 @@ export class LogoutDone implements Action {
   readonly type = AuthActionTypes.LogoutDone;
 }
 
-export type AuthActions = StartLogin | LoginSuccess | LoginFail | StartLogout | LogoutDone;
+export type AuthActions =
+  | StartLogin
+  | LoginSuccess
+  | LoginFail
+  | StartLogout
+  | LogoutDone;

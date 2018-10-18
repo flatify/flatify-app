@@ -7,14 +7,9 @@ import { RouterModule } from '@angular/router';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild([])
-  ],
+  imports: [CommonModule, SharedModule, RouterModule.forChild([])],
   declarations: [BottomBarComponent, MainLayoutComponent, BottomMenuComponent],
   entryComponents: [BottomMenuComponent],
   exports: [MainLayoutComponent]
 })
-export class CoreModule {
-}
+export class CoreModule {}

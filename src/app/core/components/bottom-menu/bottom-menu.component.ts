@@ -7,12 +7,9 @@ import { MatBottomSheetRef } from '@angular/material';
   styleUrls: ['./bottom-menu.component.scss']
 })
 export class BottomMenuComponent implements OnInit {
+  constructor(private bottomSheet: MatBottomSheetRef<BottomMenuComponent>) {}
 
-  constructor(private bottomSheet: MatBottomSheetRef<BottomMenuComponent>) {
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logout() {
     this.bottomSheet.dismiss({ logout: true });

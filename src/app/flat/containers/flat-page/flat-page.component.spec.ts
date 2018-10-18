@@ -9,8 +9,7 @@ describe('FlatPageComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [FlatPageComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

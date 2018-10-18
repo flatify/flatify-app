@@ -1,4 +1,10 @@
-import { ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from '@ngrx/store';
+import {
+  ActionReducer,
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector,
+  MetaReducer
+} from '@ngrx/store';
 import { environment } from '../../environments/environment';
 
 import * as fromLayout from '@flatify/core/reducers/layout.reducer';
@@ -56,4 +62,7 @@ export const getAuthLoading = createSelector(getAuthState, fromAuth.getLoading);
 export const isLoggedIn = createSelector(getAuthState, fromAuth.isLoggedIn);
 export const hasAuthError = createSelector(getAuthState, fromAuth.hasError);
 
-export const getIsAssignedToFlat = createSelector(getFlatState, fromFlat.selectIsAssigned);
+export const getIsAssignedToFlat = createSelector(
+  getFlatState,
+  fromFlat.selectIsAssigned
+);

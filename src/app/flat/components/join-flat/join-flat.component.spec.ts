@@ -9,8 +9,7 @@ describe('JoinFlatComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [JoinFlatComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

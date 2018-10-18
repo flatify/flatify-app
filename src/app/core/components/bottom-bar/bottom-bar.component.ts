@@ -6,13 +6,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./bottom-bar.component.scss']
 })
 export class BottomBarComponent implements OnInit {
+  @Output()
+  menuClick = new EventEmitter();
 
-  @Output() menuClick = new EventEmitter();
+  constructor() {}
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

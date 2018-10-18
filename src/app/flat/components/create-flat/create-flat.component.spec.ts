@@ -9,8 +9,7 @@ describe('CreateFlatComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CreateFlatComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

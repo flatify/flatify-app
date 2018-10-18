@@ -13,12 +13,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [FlatPageComponent, CreateFlatComponent, JoinFlatComponent, FlatInfoComponent]
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
+  declarations: [
+    FlatPageComponent,
+    CreateFlatComponent,
+    JoinFlatComponent,
+    FlatInfoComponent
+  ]
 })
-export class FlatModule {
-}
+export class FlatModule {}

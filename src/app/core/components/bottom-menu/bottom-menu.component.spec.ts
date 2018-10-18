@@ -9,8 +9,7 @@ describe('BottomMenuComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BottomMenuComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
