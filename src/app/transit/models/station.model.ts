@@ -1,6 +1,7 @@
 export interface Station {
   id: number;
   name: string;
+  footway: number;
   departures: Departure[];
   servingLines: {}[];
 }

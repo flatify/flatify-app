@@ -13,8 +13,9 @@ export class LiveStationService {
   private timer$ = timer(0, 10000);
   private timerSubscription: Subscription;
   private watchedStations = [
-    { name: 'Anni-Albers-Strasse', id: 988 },
-    { name: 'Muenchner Freiheit', id: 500 }
+    { name: 'Anni-Albers-Strasse', footway: 3, id: 988 },
+    // { name: 'Muenchner Freiheit', id: 500 },
+    { name: 'Alte Heide', footway: 5, id: 530 }
   ];
   private mvgHeaders = new HttpHeaders({
     'X-MVG-Authorization-Key': '5af1beca494712ed38d313714d4caff6'
@@ -39,7 +40,7 @@ export class LiveStationService {
         .get<Station>(
           `https://thingproxy.freeboard.io/fetch/https://www.mvg.de/fahrinfo/api/departure/${
             station.id
-          }?footway=0`,
+          }?footway=${station.footway}`,
           { headers: this.mvgHeaders }
         )
         .subscribe(res =>
