@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import '../../../../theme';
 
 mat-toolbar {
   height: 4rem;
@@ -12,5 +13,9 @@ mat-toolbar {
       width: 28px;
       height: 28px;
     }
+  }
+
+  .active {
+    color: mat-color($flatify-app-primary);
   }
 }

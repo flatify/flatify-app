@@ -1,0 +1,10 @@
+<h3>{{station.name}}</h3>
+<mat-list>
+  <mat-list-item *ngFor="let departure of station.departures">
+    <mat-icon [svgIcon]="departure.product.toLocaleLowerCase()" matListIcon
+              [style.color]="departure.lineBackgroundColor"></mat-icon>
+    <h3 matLine fxLayout="row" fxLayoutAlign="space-between"><span>{{departure.label}}</span>
+      <span>in {{departure.departureTime | relativeTime}}</span></h3>
+    <p matLine class="mat-caption">Richtung {{departure.destination}}</p>
+  </mat-list-item>
+</mat-list>

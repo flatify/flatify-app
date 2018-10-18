@@ -3,7 +3,11 @@ main {
 }
 
 app-bottom-bar {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+div.toolbar-spacer {
+  height: 5rem;
 }

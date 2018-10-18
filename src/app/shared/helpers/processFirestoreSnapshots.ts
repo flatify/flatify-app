@@ -2,7 +2,7 @@ import { map } from 'rxjs/operators';
 
 export const processFirestoreDoc = map(processAction);
 // @ts-ignore
-export const processFirestoreCollection = map(actions =>
+export const processFirestoreCollection = map((actions: Array) =>
   actions.map(processAction)
 );
 

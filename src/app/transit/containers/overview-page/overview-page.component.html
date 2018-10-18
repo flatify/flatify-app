@@ -1,0 +1,10 @@
+<section>
+  <h1>MVG Abfahrten</h1>
+  <ng-container *ngIf="loading$|async; else list">
+    <p>Bitte warte kurz</p>
+    <mat-spinner></mat-spinner>
+  </ng-container>
+  <ng-template #list>
+    <app-station *ngFor="let station of stations$ | async as stations" [station]="station"></app-station>
+  </ng-template>
+</section>

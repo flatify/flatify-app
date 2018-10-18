@@ -30,7 +30,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'flat', loadChildren: '@flatify/flat/flat.module#FlatModule' },
-      { path: '', pathMatch: 'full', redirectTo: 'flats' }
+      {
+        path: 'transit',
+        loadChildren: '@flatify/transit/transit.module#TransitModule'
+      },
+      { path: '', pathMatch: 'full', redirectTo: 'transit' }
     ]
   }
 ];

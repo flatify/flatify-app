@@ -9,8 +9,10 @@ import {
   MatInputModule,
   MatListModule,
   MatProgressBarModule,
+  MatProgressSpinnerModule,
   MatToolbarModule
 } from '@angular/material';
+import { RelativeTimePipe } from './pipes/relative-time.pipe';
 
 const matModules = [
   MatToolbarModule,
@@ -20,14 +22,14 @@ const matModules = [
   MatProgressBarModule,
   MatBottomSheetModule,
   MatListModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressSpinnerModule
 ];
 const sharedModules = [...matModules, FlexLayoutModule];
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [],
-  exports: [sharedModules]
+  declarations: [RelativeTimePipe],
+  exports: [sharedModules, RelativeTimePipe]
 })
-export class SharedModule {
-}
+export class SharedModule {}
