@@ -1,11 +1,18 @@
 import { Action } from '@ngrx/store';
 
 export enum FlatActionTypes {
-  LoadFlats = '[Flat] Load Flats'
+  LoadFlat = '[Flat] Load Flat',
+  CreateFlat = '[Flat] Create Flat'
 }
 
-export class LoadFlats implements Action {
-  readonly type = FlatActionTypes.LoadFlats;
+export class CreateFlat implements Action {
+  readonly type = FlatActionTypes.CreateFlat;
+
+  constructor(public payload: { flat: any; id: string }) {}
 }
 
-export type FlatActionsUnion = LoadFlats;
+export class LoadFlat implements Action {
+  readonly type = FlatActionTypes.LoadFlat;
+}
+
+export type FlatActionsUnion = LoadFlat | CreateFlat;

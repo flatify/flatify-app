@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from '@flatify/core/core.module';
 import { AppComponent } from '@flatify/app.component';
 import { metaReducers, reducers } from '@flatify/reducers';
-import { AppEffects } from '@flatify/app.effects';
 import { PublicModule } from '@flatify/public/public.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -20,7 +19,8 @@ import { AuthEffects } from '@flatify/core/effects/auth.effects';
 import { AuthGuard } from '@flatify/core/services/auth.guard';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MainLayoutComponent } from '@flatify/core/conatiners/main-layout/main-layout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AppEffects } from '@flatify/core/effects/app.effects';
+import { FlatEffects } from '@flatify/core/effects/flat.effects';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'hello' },
@@ -44,14 +44,13 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     }),
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([AppEffects, AuthEffects]),
+    EffectsModule.forRoot([AppEffects, AuthEffects, FlatEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

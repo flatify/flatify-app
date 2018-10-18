@@ -25,12 +25,10 @@ export class AppComponent implements OnInit {
       if (user) {
         this.store.dispatch(
           new AuthActions.LoginSuccess({
-            data: {
-              uid: user.uid,
-              email: user.email,
-              name: user.displayName,
-              photoURL: user.photoURL
-            }
+            uid: user.uid,
+            email: user.email,
+            name: user.displayName,
+            photoURL: user.photoURL
           })
         );
       } else {

@@ -1,3 +1,12 @@
-<p>
-  flat-info works!
-</p>
+<h2>{{flat.name}}</h2>
+
+<div *ngIf="flat.inviteCode; else codeLoad">
+  <h4>Dein Einladungscode</h4>
+  <pre>{{flat.inviteCode}}</pre>
+  <p>Mit deisem Code koennen deine Mitbewohner dieser WG beitreten</p>
+</div>
+
+<ng-template #codeLoad>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <p>Wir generieren deinen Einladungscode gerade, er wird in ein paar Sekunden hier erscheinen</p>
+</ng-template>

@@ -16,7 +16,14 @@ export class StartLogin implements Action {
 export class LoginSuccess implements Action {
   readonly type = AuthActionTypes.LoginSuccess;
 
-  constructor(public payload: { data: object }) {}
+  constructor(
+    public payload: {
+      uid: string;
+      email: string;
+      name: string;
+      photoURL: string;
+    }
+  ) {}
 }
 
 export class LoginFail implements Action {

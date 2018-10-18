@@ -2,13 +2,18 @@ import { AuthActions } from '@flatify/core/actions';
 import { auth } from 'firebase/app';
 
 export interface State {
-  user: object | null;
+  loginInfo: {
+    uid: string;
+    email: string;
+    name: string;
+    photoURL: string;
+  } | null;
   loading: boolean;
   error: auth.Error | null;
 }
 
 export const initialState: State = {
-  user: null,
+  loginInfo: null,
   loading: false,
   error: null
 };
@@ -28,7 +33,7 @@ export function reducer(
     case AuthActions.AuthActionTypes.LoginSuccess: {
       return {
         ...state,
-        user: action.payload.data,
+        loginInfo: action.payload,
         loading: false
       };
     }
@@ -57,8 +62,8 @@ export function reducer(
   }
 }
 
-export const getUser = (state: State) => state.user;
-export const isLoggedIn = (state: State) => !!state.user;
+export const getUserId = (state: State) => state.loginInfo.uid;
+export const isLoggedIn = (state: State) => !!state.loginInfo;
 export const getLoading = (state: State) => state.loading;
 export const getError = (state: State) => state.error;
 export const hasError = (state: State) => !!state.error;

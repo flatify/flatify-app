@@ -13,6 +13,7 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const matModules = [
   MatToolbarModule,
@@ -25,7 +26,7 @@ const matModules = [
   MatInputModule,
   MatProgressSpinnerModule
 ];
-const sharedModules = [...matModules, FlexLayoutModule];
+const sharedModules = [...matModules, FlexLayoutModule, ReactiveFormsModule];
 
 @NgModule({
   imports: [CommonModule],

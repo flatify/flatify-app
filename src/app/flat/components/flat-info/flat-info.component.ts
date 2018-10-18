@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-flat-info',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flat-info.component.scss']
 })
 export class FlatInfoComponent implements OnInit {
+  @Input()
+  flat;
+
   constructor() {}
 
   ngOnInit() {}

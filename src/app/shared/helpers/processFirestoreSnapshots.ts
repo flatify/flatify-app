@@ -8,7 +8,7 @@ export const processFirestoreCollection = map((actions: Array) =>
 
 function processAction(action) {
   return {
-    ...action.payload.doc.data(),
-    id: action.payload.doc.id
+    ...action.payload.data(),
+    id: action.payload.id
   };
 }

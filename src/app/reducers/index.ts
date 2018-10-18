@@ -6,22 +6,22 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { storeFreeze } from 'ngrx-store-freeze';
 
 import * as fromLayout from '@flatify/core/reducers/layout.reducer';
 import * as fromAuth from '@flatify/core/reducers/auth.reducer';
-import * as fromFlat from '@flatify/core/reducers/flat.reducer';
-import { storeFreeze } from 'ngrx-store-freeze';
+import * as fromApp from '@flatify/core/reducers/app.reducer';
 
 export interface State {
   layout: fromLayout.State;
   auth: fromAuth.State;
-  flat: fromFlat.State;
+  app: fromApp.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   layout: fromLayout.reducer,
   auth: fromAuth.reducer,
-  flat: fromFlat.reducer
+  app: fromApp.reducer
 };
 
 // console.log all actions
@@ -54,15 +54,15 @@ export const getLayoutState = createFeatureSelector<State, fromLayout.State>(
 export const getAuthState = createFeatureSelector<State, fromAuth.State>(
   'auth'
 );
-export const getFlatState = createFeatureSelector<State, fromFlat.State>(
-  'flat'
-);
+export const getAppState = createFeatureSelector<State, fromApp.State>('app');
 
 export const getAuthLoading = createSelector(getAuthState, fromAuth.getLoading);
 export const isLoggedIn = createSelector(getAuthState, fromAuth.isLoggedIn);
 export const hasAuthError = createSelector(getAuthState, fromAuth.hasError);
+export const getUserId = createSelector(getAuthState, fromAuth.getUserId);
 
 export const getIsAssignedToFlat = createSelector(
-  getFlatState,
-  fromFlat.selectIsAssigned
+  getAppState,
+  fromApp.selectHasFlat
 );
+export const getFlat = createSelector(getAppState, fromApp.selectFlat);

@@ -1,6 +1,6 @@
-import { initialState, reducer } from './flat.reducer';
+import { initialState, reducer } from './app.reducer';
 
-describe('Flat Reducer', () => {
+describe('App Reducer', () => {
   describe('unknown action', () => {
     it('should return the initial state', () => {
       const action = {} as any;
