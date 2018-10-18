@@ -1,0 +1,28 @@
+<section>
+  <h1>Deine WG</h1>
+  <app-flat-info *ngIf="isAssigned$ | async; else noFLat"></app-flat-info>
+  <ng-template #noFLat>
+    <div fxLayout="column" fxLayoutGap="1rem">
+      <p>Es sieht aus als waerst du in noch keiner WG im Moment, du hast zwei Moeglichkeiten.
+        Am besten dur fragst deine Mitbewohner ob sie schon eine WG erstellt haben, der du beitreten kannst.</p>
+      <ng-container [ngSwitch]="mode$ | async">
+        <ng-container *ngSwitchCase="'selection'">
+          <button (click)="startCreate()" color="primary" mat-stroked-button>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem" style="width: 100%;">
+              <mat-icon svgIcon="add-new"></mat-icon>
+              <span>Neue WG erstellen</span>
+            </div>
+          </button>
+          <button (click)="startJoin()" color="primary" mat-stroked-button>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem" style="width: 100%;">
+              <mat-icon svgIcon="enter"></mat-icon>
+              <span>Einer WG beitreten</span>
+            </div>
+          </button>
+        </ng-container>
+        <app-create-flat (joinFlat)="startJoin()" *ngSwitchCase="'create'"></app-create-flat>
+        <app-join-flat (createFlat)="startCreate()" *ngSwitchCase="'join'"></app-join-flat>
+      </ng-container>
+    </div>
+  </ng-template>
+</section>

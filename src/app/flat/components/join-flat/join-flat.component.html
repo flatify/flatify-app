@@ -1,0 +1,11 @@
+<div fxLayout="column">
+  <h2>Einer WG beitreten</h2>
+  <p>Hier kannst du einer WG beitreeten die einer deiner Mitbweohner schon erstellt hat, gib einfach den code ein, den
+    du bekommen hast. Solltest du noch keinen Code habe, frage deine Mitbewohner nach einem oder erstelle eine neue
+    WG</p>
+  <mat-form-field>
+    <input matInput placeholder="Code" type="text">
+  </mat-form-field>
+  <button color="accent" mat-raised-button>Beitreten</button>
+  <button (click)="createFlat.emit()" mat-button>Ich moechte doch eine WG erstellen</button>
+</div>

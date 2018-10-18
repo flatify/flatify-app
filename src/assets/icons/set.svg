@@ -50,4 +50,16 @@
   <svg id="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
     <path d="M 11 3 L 11 11 L 3 11 L 3 13 L 11 13 L 11 21 L 13 21 L 13 13 L 21 13 L 21 11 L 13 11 L 13 3 L 11 3 z"/>
   </svg>
+  <svg id="enter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
+      d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 11 L 3 13 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 5 C 21 3.9069372 20.093063 3 19 3 L 5 3 z M 5 5 L 19 5 L 19 19 L 5 19 L 5 13 L 11.585938 13 L 9.2929688 15.292969 L 10.707031 16.707031 L 15.414062 12 L 10.707031 7.2929688 L 9.2929688 8.7070312 L 11.585938 11 L 5 11 L 5 5 z"
+      font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"/>
+  </svg>
+  <svg id="train-station" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <path
+      style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
+      d="M 12 -0.0546875 L 2.6835938 3.0507812 L 3.3164062 4.9492188 L 12 2.0546875 L 20.683594 4.9492188 L 21.316406 3.0507812 L 12 -0.0546875 z M 9 5 C 7.9069372 5 7 5.9069372 7 7 L 7 7.203125 C 5.2936368 7.6594792 4 9.1564058 4 11 L 4 19 C 4 20.64497 5.3550302 22 7 22 L 7 24 L 9 24 L 9 22 L 15 22 L 15 24 L 17 24 L 17 22 C 18.64497 22 20 20.64497 20 19 L 20 11 C 20 9.1564058 18.706363 7.6594792 17 7.203125 L 17 7 C 17 5.9069372 16.093063 5 15 5 L 9 5 z M 9 7 L 15 7 L 15 9 L 9 9 L 9 7 z M 6 11 L 18 11 L 18 14 L 6 14 L 6 11 z M 6 16 L 18 16 L 18 19 C 18 19.56503 17.56503 20 17 20 L 7 20 C 6.4349698 20 6 19.56503 6 19 L 6 16 z M 12 17 A 1 1 0 0 0 11 18 A 1 1 0 0 0 12 19 A 1 1 0 0 0 13 18 A 1 1 0 0 0 12 17 z"
+      font-weight="400" font-family="sans-serif" white-space="normal" overflow="visible"/>
+  </svg>
 </svg>

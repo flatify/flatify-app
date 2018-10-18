@@ -1,0 +1,12 @@
+<div fxLayout="column">
+  <h2>Neue WG anlegen</h2>
+  <p>Wenn noch niemand as deiner WG sie hier eingetragen hat, kannst du das jetzt machen. Bitte gib dazu einfach einen
+    Namen an.</p>
+  <mat-form-field>
+    <input matInput placeholder="Name" type="text">
+  </mat-form-field>
+  <p class="mat-caption">Sobald die WG angelegt ist, generieren wir einen Code damit du auch deine Mitbewohner einladen
+    kannst</p>
+  <button color="accent" mat-raised-button>Speichern</button>
+  <button (click)="joinFlat.emit()" mat-button>Ich moechte doch einer WG beitreten</button>
+</div>

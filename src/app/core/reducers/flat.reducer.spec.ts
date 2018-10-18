@@ -1,4 +1,4 @@
-import { initialState, reducer } from '../reducers/flat.reducer';
+import { initialState, reducer } from './flat.reducer';
 
 describe('Flat Reducer', () => {
   describe('unknown action', () => {

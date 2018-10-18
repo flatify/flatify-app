@@ -3,16 +3,19 @@ import { environment } from '../../environments/environment';
 
 import * as fromLayout from '@flatify/core/reducers/layout.reducer';
 import * as fromAuth from '@flatify/core/reducers/auth.reducer';
+import * as fromFlat from '@flatify/core/reducers/flat.reducer';
 import { storeFreeze } from 'ngrx-store-freeze';
 
 export interface State {
   layout: fromLayout.State;
   auth: fromAuth.State;
+  flat: fromFlat.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   layout: fromLayout.reducer,
-  auth: fromAuth.reducer
+  auth: fromAuth.reducer,
+  flat: fromFlat.reducer
 };
 
 // console.log all actions
@@ -45,7 +48,12 @@ export const getLayoutState = createFeatureSelector<State, fromLayout.State>(
 export const getAuthState = createFeatureSelector<State, fromAuth.State>(
   'auth'
 );
+export const getFlatState = createFeatureSelector<State, fromFlat.State>(
+  'flat'
+);
 
 export const getAuthLoading = createSelector(getAuthState, fromAuth.getLoading);
 export const isLoggedIn = createSelector(getAuthState, fromAuth.isLoggedIn);
 export const hasAuthError = createSelector(getAuthState, fromAuth.hasError);
+
+export const getIsAssignedToFlat = createSelector(getFlatState, fromFlat.selectIsAssigned);

@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'hello' },
   {
     path: 'app', component: MainLayoutComponent, canActivate: [AuthGuard], children: [
-      { path: 'flats', loadChildren: '@flatify/flats/flats.module#FlatsModule' },
+      { path: 'flat', loadChildren: '@flatify/flat/flat.module#FlatModule' },
       { path: '', pathMatch: 'full', redirectTo: 'flats' }
     ]
   }];

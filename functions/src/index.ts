@@ -1,5 +1,6 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import * as shortid from 'shortid';
 
 admin.initializeApp();
 const firestore = admin.firestore();
@@ -21,3 +22,8 @@ export const createUser = functions.auth.user().onCreate((user, context) => {
   };
   firestore.collection('users').doc(user.uid).set(data).then(console.log, console.error);
 });
+
+export const generateInviteCode = functions.firestore.document('flats/{flatId}').onCreate(((snapshot, context) => {
+  const inviteCode = shortid.generate();
+  snapshot.ref.update({ inviteCode }).then(console.log, console.error);
+}));

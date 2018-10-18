@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateNewPageComponent } from './create-new-page.component';
+import { FlatPageComponent } from './flat-page.component';
 
-describe('CreateNewPageComponent', () => {
-  let component: CreateNewPageComponent;
-  let fixture: ComponentFixture<CreateNewPageComponent>;
+describe('FlatPageComponent', () => {
+  let component: FlatPageComponent;
+  let fixture: ComponentFixture<FlatPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CreateNewPageComponent]
+      declarations: [FlatPageComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateNewPageComponent);
+    fixture = TestBed.createComponent(FlatPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

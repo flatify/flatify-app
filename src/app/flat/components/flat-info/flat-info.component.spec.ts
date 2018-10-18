@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlatListComponent } from './flat-list.component';
+import { FlatInfoComponent } from './flat-info.component';
 
-describe('FlatListComponent', () => {
-  let component: FlatListComponent;
-  let fixture: ComponentFixture<FlatListComponent>;
+describe('FlatInfoComponent', () => {
+  let component: FlatInfoComponent;
+  let fixture: ComponentFixture<FlatInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FlatListComponent]
+      declarations: [FlatInfoComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlatListComponent);
+    fixture = TestBed.createComponent(FlatInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
