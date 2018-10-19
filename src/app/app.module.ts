@@ -21,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MainLayoutComponent } from '@flatify/core/conatiners/main-layout/main-layout.component';
 import { AppEffects } from '@flatify/core/effects/app.effects';
 import { FlatEffects } from '@flatify/core/effects/flat.effects';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'hello' },
@@ -58,6 +59,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireFunctionsModule,
     PublicModule,
     CoreModule
   ],

@@ -22,7 +22,8 @@
         </ng-container>
         <app-create-flat (createFlat)="finishCreate($event)" (joinFlat)="startJoin()"
                          *ngSwitchCase="'create'"></app-create-flat>
-        <app-join-flat (createFlat)="startCreate()" *ngSwitchCase="'join'"></app-join-flat>
+        <app-join-flat (createFlat)="startCreate()" (joinFlat)="finishJoin($event)"
+                       *ngSwitchCase="'join'"></app-join-flat>
       </ng-container>
     </div>
   </ng-template>

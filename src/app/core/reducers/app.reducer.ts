@@ -3,21 +3,37 @@ import {
   AppActionsUnion,
   AppActionTypes
 } from '@flatify/core/actions/app.actions';
+import {
+  FlatActionsUnion,
+  FlatActionTypes
+} from '@flatify/core/actions/flat.actions';
 
 export interface State {
   user: User | null;
   flat: any | null;
+  joinStatus: string;
 }
 
 export const initialState: State = {
   user: null,
-  flat: null
+  flat: null,
+  joinStatus: 'fresh'
 };
 
-export function reducer(state = initialState, action: AppActionsUnion): State {
+export function reducer(
+  state = initialState,
+  action: AppActionsUnion | FlatActionsUnion
+): State {
   switch (action.type) {
     case AppActionTypes.SetUser: {
       return { ...state, user: action.payload };
+    }
+
+    case FlatActionTypes.JoinFlat: {
+      return {
+        ...state,
+        joinStatus: 'joining'
+      };
     }
 
     case AppActionTypes.SetFlatId: {

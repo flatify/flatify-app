@@ -4,8 +4,13 @@
     du bekommen hast. Solltest du noch keinen Code habe, frage deine Mitbewohner nach einem oder erstelle eine neue
     WG</p>
   <mat-form-field>
-    <input matInput placeholder="Code" type="text">
+    <input [formControl]="inviteCtrl" matInput placeholder="Code" type="text">
   </mat-form-field>
-  <button color="accent" mat-raised-button>Beitreten</button>
+  <button *ngIf="validatingCode; else submitCode" [disabled]="true" color="accent" mat-raised-button>Validiere Code
+    ...
+  </button>
+  <ng-template #submitCode>
+    <button (click)="useCode()" [disabled]="inviteCtrl.invalid" color="accent" mat-raised-button>Beitreten</button>
+  </ng-template>
   <button (click)="createFlat.emit()" mat-button>Ich moechte doch eine WG erstellen</button>
 </div>

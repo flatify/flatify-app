@@ -10,3 +10,5 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <p>Wir generieren deinen Einladungscode gerade, er wird in ein paar Sekunden hier erscheinen</p>
 </ng-template>
+
+<button mat-stroked-button color="primary" *ngIf="canShare" (click)="shareCode()">Mitbewohner einladen</button>

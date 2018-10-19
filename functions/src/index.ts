@@ -4,6 +4,11 @@ import * as shortid from 'shortid';
 
 admin.initializeApp();
 const firestore = admin.firestore();
+const settings = { timestampsInSnapshots: true };
+firestore.settings(settings);
+shortid.characters(
+  '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@'
+);
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -33,27 +38,31 @@ export const generateInviteCode = functions.firestore
     snapshot.ref.update({ inviteCode }).then(console.log, console.error);
   });
 
-export const processInviteCode = functions.https.onRequest(
-  async (req, resp) => {
-    resp.set({
-      'access-control-allow-headers': 'content-type',
-      'access-control-allow-methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-      'access-control-allow-origin': req.get('origin')
-    });
-    console.log('Headers are set');
-    if (req.method === 'OPTIONS') {
-      resp.status(204).send();
-      console.log('OPTIONS request found, returning preflight');
-      return;
-    }
-    console.log('Regular request, running function');
-    if (!req.body.data || !req.body.data.code) {
+export const processInviteCode = functions.https.onCall(
+  async (data, context) => {
+    if (!data.code) {
       console.log('Invite Code is missing aborting function');
-      resp
-        .status(400)
-        .json({ data: { error: 'Missing the invite code to process' } });
-      return;
+      return { data: { success: false, message: 'No code provided' } };
     }
-    const inviteCode = req.body.data.code;
+    const inviteCode = data.code;
+
+    const flats = await firestore
+      .collection('flats')
+      .where('inviteCode', '==', inviteCode)
+      .get();
+    if (flats.empty) {
+      return {
+        data: {
+          success: false,
+          message: 'Invide code did not belong to any flat'
+        }
+      };
+    }
+    const flat = flats.docs[0].data();
+    await firestore
+      .collection('users')
+      .doc(context.auth.uid)
+      .update({ flatId: flats.docs[0].id });
+    return { data: { success: true, flat } };
   }
 );

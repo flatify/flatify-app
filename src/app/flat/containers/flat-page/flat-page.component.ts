@@ -52,4 +52,8 @@ export class FlatPageComponent implements OnInit {
         )
       );
   }
+
+  finishJoin(code) {
+    this.store.dispatch(new FlatActions.JoinFlat(code));
+  }
 }

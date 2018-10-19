@@ -2,7 +2,8 @@
   <section class="intro mat-app-background" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="2rem">
     <img src="/assets/illustration/home.svg">
     <h1 class="mat-display-3">Flatify</h1>
-    <h2>Einfacher in der WG leben</h2>
+    <h2>Besser zusammen leben</h2>
+    <button (click)="openStart()" color="accent" mat-stroked-button>Jetzt anmelden</button>
   </section>
   <section class="features flatify-light-theme mat-app-background" fxLayout="column" fxLayoutGap="2rem">
     <h1>Flatify hilft euch</h1>
@@ -18,11 +19,26 @@
         <h3>Mit dem Geld</h3>
         <p>Wenn man mal kosten für die Mitbewohner übernimmt, einfach in der app eingeben und später ausgleichen</p>
       </div>
-      <img fxFlex="33" src="/assets/illustration/cash.svg">
+      <img fxFlex="33" src="/assets/illustration/profit.svg">
+    </div>
+    <div fxLayout="row" fxLayoutGap="2rem">
+      <img fxFlex="33" src="/assets/illustration/map.svg">
+      <div fxFlex>
+        <h3>Beim reisen</h3>
+        <p>Seht die aktuellen Abfahrtszeiten von MVG-Stationen in eurer Naehe</p>
+      </div>
     </div>
   </section>
   <section class="roadmap flatify-light-theme mat-app-background" fxLayout="column" fxLayoutGap="2rem">
     <h1>Warum flatify?</h1>
+    <div fxLayout="row" fxLayoutGap="2rem">
+      <div fxFlex>
+        <h3>Keine Kosten</h3>
+        <p>Natürlich können wir armen Studenten kein Geld ausgeben, damit es in der WG besser läuft. Flatify ist
+          gratis und wird es bleiben solange es geht</p>
+      </div>
+      <img fxFlex="33" src="/assets/illustration/register.svg">
+    </div>
     <div fxLayout="row" fxLayoutGap="2rem">
       <img fxFlex="33" src="/assets/illustration/test-tube.svg">
       <div fxFlex>
@@ -33,11 +49,11 @@
     </div>
     <div fxLayout="row" fxLayoutGap="2rem">
       <div fxFlex>
-        <h3>Keine Kosten</h3>
-        <p>Natürlich können wir armen Studenten kein Geld ausgeben, damit es in der WG besser läuft. Flatify ist
-          gratis und wird es bleiben solange es geht</p>
+        <h3>Offen</h3>
+        <p>Wenn du mehr wissen moestest schu dir gern den Quellcode fuer unsere App auf <a
+          href="https://github.com/flatify/flatify-app">Github</a> an</p>
       </div>
-      <img fxFlex="33" src="/assets/illustration/register.svg">
+      <img fxFlex="33" src="/assets/illustration/padlock.svg">
     </div>
   </section>
   <section class="start mat-app-background" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="1rem">

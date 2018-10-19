@@ -9,7 +9,28 @@ export class FlatInfoComponent implements OnInit {
   @Input()
   flat;
 
+  canShare;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // @ts-ignore
+    if (navigator.share) {
+      this.canShare = true;
+    }
+  }
+
+  shareCode() {
+    // @ts-ignore
+    navigator
+      .share({
+        title: 'Tritt meiner WG bei',
+        text: `Nutze den Code ${this.flat.inviteCode} umd ${
+          this.flat.name
+        } beizutreten`,
+        url: 'https://flatify.app'
+      })
+      .then(() => console.log('Successful share'))
+      .catch(error => console.log('Error sharing', error));
+  }
 }
