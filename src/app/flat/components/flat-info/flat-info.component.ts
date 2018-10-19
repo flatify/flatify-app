@@ -21,8 +21,8 @@ export class FlatInfoComponent implements OnInit {
   }
 
   shareCode() {
-    // @ts-ignore
     navigator
+      // @ts-ignore
       .share({
         title: 'Tritt meiner WG bei',
         text: `Nutze den Code ${this.flat.inviteCode} umd ${
