@@ -44,6 +44,19 @@ export class AppComponent implements OnInit {
     this.registry.addSvgIconSet(
       this.san.bypassSecurityTrustResourceUrl('/assets/icons/set.svg')
     );
+    window.addEventListener('beforeinstallprompt', e => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      this.snackBar
+        .open('Fuege diese Seite deinem Homscreen hinzu', 'Jetzt hinzufuegen')
+        .afterDismissed()
+        .subscribe(({ dismissedByAction }) => {
+          if (dismissedByAction) {
+            // @ts-ignore
+            e.prompt();
+          }
+        });
+    });
     this.updates.available.subscribe(event => {
       this.snackBar
         .open(

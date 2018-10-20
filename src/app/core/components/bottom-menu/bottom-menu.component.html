@@ -1,5 +1,9 @@
 <mat-nav-list>
-  <mat-list-item (click)="close()" routerLink="/app/flat">
+  <mat-list-item (click)="close()" routerLink="/app/cleaning" routerLinkActive="active">
+    <mat-icon matListIcon svgIcon="broom"></mat-icon>
+    <h2 matLine>Putzplan</h2>
+  </mat-list-item>
+  <mat-list-item (click)="close()" routerLink="/app/flat" routerLinkActive="active">
     <mat-icon matListIcon svgIcon="home"></mat-icon>
     <h2 matLine>Deine WG</h2>
   </mat-list-item>

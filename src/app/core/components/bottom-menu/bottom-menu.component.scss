@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+@import '../../../../theme';
+
+mat-nav-list.mat-nav-list {
+  mat-list-item.mat-list-item.active {
+    color: mat-color($flatify-app-primary);
+  }
+}

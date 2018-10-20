@@ -4,6 +4,7 @@ import { BottomMenuComponent } from '@flatify/core/components/bottom-menu/bottom
 import { State } from '@flatify/reducers';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@flatify/core/actions';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-layout',
@@ -22,6 +23,7 @@ export class MainLayoutComponent implements OnInit {
     this.bottomSheet
       .open(BottomMenuComponent)
       .afterDismissed()
+      .pipe(filter(res => res))
       .subscribe(({ logout }) => {
         if (logout) {
           this.store.dispatch(new AuthActions.StartLogout());

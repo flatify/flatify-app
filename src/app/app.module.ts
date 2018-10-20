@@ -32,6 +32,10 @@ const routes: Routes = [
     children: [
       { path: 'flat', loadChildren: '@flatify/flat/flat.module#FlatModule' },
       {
+        path: 'shopping',
+        loadChildren: '@flatify/shopping/shopping.module#ShoppingModule'
+      },
+      {
         path: 'expenses',
         loadChildren: '@flatify/expenses/expenses.module#ExpensesModule'
       },
