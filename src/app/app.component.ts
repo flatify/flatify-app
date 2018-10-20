@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
 import { AuthActions } from '@flatify/core/actions';
 import { SwUpdate } from '@angular/service-worker';
+import { InstallPromptService } from '@flatify/core/services/install-prompt.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit {
     private store: Store<fromRoot.State>,
     private fireAuth: AngularFireAuth,
     private updates: SwUpdate,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private promptService: InstallPromptService
   ) {
     this.fireAuth.user.pipe(first()).subscribe(user => {
       if (user) {
@@ -47,15 +49,7 @@ export class AppComponent implements OnInit {
     window.addEventListener('beforeinstallprompt', e => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault();
-      this.snackBar
-        .open('Fuege diese Seite deinem Homscreen hinzu', 'Jetzt hinzufuegen')
-        .afterDismissed()
-        .subscribe(({ dismissedByAction }) => {
-          if (dismissedByAction) {
-            // @ts-ignore
-            e.prompt();
-          }
-        });
+      this.promptService.saveEvent(e);
     });
     this.updates.available.subscribe(event => {
       this.snackBar

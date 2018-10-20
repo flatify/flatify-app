@@ -7,6 +7,10 @@
     <mat-icon matListIcon svgIcon="home"></mat-icon>
     <h2 matLine>Deine WG</h2>
   </mat-list-item>
+  <mat-list-item (click)="installApp()" *ngIf="canInstall$ | async">
+    <mat-icon matListIcon svgIcon="download"></mat-icon>
+    <h2 matLine>App installieren</h2>
+  </mat-list-item>
   <mat-list-item (click)="logout()">
     <mat-icon matListIcon svgIcon="shutdown"></mat-icon>
     <h2 matLine>Abmelden</h2>

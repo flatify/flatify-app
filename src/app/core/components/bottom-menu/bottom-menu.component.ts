@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material';
+import { InstallPromptService } from '@flatify/core/services/install-prompt.service';
 
 @Component({
   selector: 'app-bottom-menu',
@@ -7,9 +8,16 @@ import { MatBottomSheetRef } from '@angular/material';
   styleUrls: ['./bottom-menu.component.scss']
 })
 export class BottomMenuComponent implements OnInit {
-  constructor(private bottomSheet: MatBottomSheetRef<BottomMenuComponent>) {}
+  canInstall$;
 
-  ngOnInit() {}
+  constructor(
+    private bottomSheet: MatBottomSheetRef<BottomMenuComponent>,
+    private promptService: InstallPromptService
+  ) {}
+
+  ngOnInit() {
+    this.canInstall$ = this.promptService.canPrompt();
+  }
 
   logout() {
     this.bottomSheet.dismiss({ logout: true });
@@ -17,5 +25,9 @@ export class BottomMenuComponent implements OnInit {
 
   close() {
     this.bottomSheet.dismiss({});
+  }
+
+  installApp() {
+    this.promptService.getEvent().prompt();
   }
 }
