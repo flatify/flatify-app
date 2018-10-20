@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatSnackBar } from '@angular/material';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '@flatify/reducers';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
 import { AuthActions } from '@flatify/core/actions';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,9 @@ export class AppComponent implements OnInit {
     private san: DomSanitizer,
     private registry: MatIconRegistry,
     private store: Store<fromRoot.State>,
-    private fireAuth: AngularFireAuth
+    private fireAuth: AngularFireAuth,
+    private updates: SwUpdate,
+    private snackBar: MatSnackBar
   ) {
     this.fireAuth.user.pipe(first()).subscribe(user => {
       if (user) {
@@ -41,5 +44,20 @@ export class AppComponent implements OnInit {
     this.registry.addSvgIconSet(
       this.san.bypassSecurityTrustResourceUrl('/assets/icons/set.svg')
     );
+    this.updates.available.subscribe(event => {
+      this.snackBar
+        .open(
+          'Eine neue Version dieser Anwendung ist verfuegbar',
+          'Jetzt laden'
+        )
+        .afterDismissed()
+        .subscribe(({ dismissedByAction }) => {
+          if (dismissedByAction) {
+            this.updates
+              .activateUpdate()
+              .then(() => document.location.reload());
+          }
+        });
+    });
   }
 }

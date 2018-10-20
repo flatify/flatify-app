@@ -10,6 +10,7 @@ import {
   MatListModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
+  MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
@@ -25,7 +26,8 @@ const matModules = [
   MatBottomSheetModule,
   MatListModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSnackBarModule
 ];
 const sharedModules = [...matModules, FlexLayoutModule, ReactiveFormsModule];
 
