@@ -19,9 +19,36 @@
   <meta content="#303030" name="msapplication-TileColor">
   <meta content="/assets/icons/browserconfig.xml" name="msapplication-config">
   <meta content="#2196f3" name="theme-color">
+
+  <style>
+    .loader {
+      background: #303030;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .clock {
+      width: 40vw;
+      height: 40vw;
+    }
+
+    .title {
+      font-family: sans-serif;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<app-root>
+  <div class="loader">
+    <img class="clock" src="/assets/illustration/clock.svg">
+    <h1 class="title">Flatify laedt ...</h1>
+  </div>
+</app-root>
+<noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>

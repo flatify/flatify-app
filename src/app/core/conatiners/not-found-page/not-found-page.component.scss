@@ -1,0 +1,17 @@
+main {
+  height: 100vh;
+  width: 100vw;
+
+  .help {
+    max-width: 80vw;
+
+    img {
+      height: 30vw;
+      width: 30vw;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

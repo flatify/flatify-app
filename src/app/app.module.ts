@@ -22,9 +22,9 @@ import { MainLayoutComponent } from '@flatify/core/conatiners/main-layout/main-l
 import { AppEffects } from '@flatify/core/effects/app.effects';
 import { FlatEffects } from '@flatify/core/effects/flat.effects';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { NotFoundPageComponent } from '@flatify/core/conatiners/not-found-page/not-found-page.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'hello' },
   {
     path: 'app',
     component: MainLayoutComponent,
@@ -32,12 +32,22 @@ const routes: Routes = [
     children: [
       { path: 'flat', loadChildren: '@flatify/flat/flat.module#FlatModule' },
       {
+        path: 'expenses',
+        loadChildren: '@flatify/expenses/expenses.module#ExpensesModule'
+      },
+      {
+        path: 'cleaning',
+        loadChildren: '@flatify/cleaning/cleaning.module#CleaningModule'
+      },
+      {
         path: 'transit',
         loadChildren: '@flatify/transit/transit.module#TransitModule'
       },
       { path: '', pathMatch: 'full', redirectTo: 'transit' }
     ]
-  }
+  },
+  { path: '', pathMatch: 'full', redirectTo: 'hello' },
+  { path: '**', component: NotFoundPageComponent }
 ];
 
 @NgModule({

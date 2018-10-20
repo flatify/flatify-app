@@ -14,6 +14,7 @@ import {
 } from '@angular/material';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UnderConstructionPageComponent } from './components/under-construction-page/under-construction-page.component';
 
 const matModules = [
   MatToolbarModule,
@@ -29,8 +30,8 @@ const matModules = [
 const sharedModules = [...matModules, FlexLayoutModule, ReactiveFormsModule];
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [RelativeTimePipe],
-  exports: [sharedModules, RelativeTimePipe]
+  imports: [CommonModule, sharedModules],
+  declarations: [RelativeTimePipe, UnderConstructionPageComponent],
+  exports: [sharedModules, RelativeTimePipe, UnderConstructionPageComponent]
 })
 export class SharedModule {}
