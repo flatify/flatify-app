@@ -68,7 +68,7 @@ const routes: Routes = [
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireFunctionsModule,
     PublicModule,
     CoreModule

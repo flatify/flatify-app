@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as shortid from 'shortid';
+import * as rp from 'request-promise-native';
 
 admin.initializeApp();
 const firestore = admin.firestore();
@@ -66,3 +67,22 @@ export const processInviteCode = functions.https.onCall(
     return { data: { success: true, flat } };
   }
 );
+
+export const makeWebRequest = functions.https.onCall(async (data, context) => {
+  if (!data.url) {
+    console.log('URL is missing, ending function');
+    return { data: { success: false, message: 'No URL provided' } };
+  }
+  const requestUrl = data.url;
+
+  console.log('Requesting url', requestUrl);
+
+  const res = await rp({
+    uri: requestUrl,
+    json: true,
+    headers: { 'X-MVG-Authorization-Key': '5af1beca494712ed38d313714d4caff6' }
+  });
+  console.log('Request finished');
+  console.log(res);
+  return { data: { success: true, res } };
+});

@@ -2,28 +2,30 @@ import { Injectable } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from '@flatify/transit/reducers';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { StationActions } from '@flatify/transit/actions';
-import { Station } from '@flatify/transit/models/station.model';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LiveStationService {
-  private timer$ = timer(0, 10000);
+  private timer$ = timer(0, 30000);
   private timerSubscription: Subscription;
   private watchedStations = [
     { name: 'Anni-Albers-Strasse', footway: 3, id: 988 },
     // { name: 'Muenchner Freiheit', id: 500 },
     { name: 'Alte Heide', footway: 5, id: 530 }
   ];
-  private mvgHeaders = new HttpHeaders({
-    'X-MVG-Authorization-Key': '5af1beca494712ed38d313714d4caff6'
-  });
+  private makeRequest;
 
-  constructor(private store: Store<State>, private http: HttpClient) {
+  constructor(
+    private store: Store<State>,
+    private http: HttpClient,
+    private functions: AngularFireFunctions
+  ) {
     console.log('Create Service');
-    console.log(this.mvgHeaders.get('X-MVG-Authorization-Key'));
+    this.makeRequest = this.functions.httpsCallable('makeWebRequest');
   }
 
   public subscribeLive() {
@@ -36,20 +38,17 @@ export class LiveStationService {
 
   private updateTimes() {
     this.watchedStations.forEach(station =>
-      this.http
-        .get<Station>(
-          `https://thingproxy.freeboard.io/fetch/https://www.mvg.de/fahrinfo/api/departure/${
-            station.id
-          }?footway=${station.footway}`,
-          { headers: this.mvgHeaders }
+      this.makeRequest({
+        url: `https://www.mvg.de/fahrinfo/api/departure/${station.id}?footway=${
+          station.footway
+        }`
+      }).subscribe(({ data }) =>
+        this.store.dispatch(
+          new StationActions.UpsertStation({
+            station: { ...data.res, ...station }
+          })
         )
-        .subscribe(res =>
-          this.store.dispatch(
-            new StationActions.UpsertStation({
-              station: { ...res, ...station }
-            })
-          )
-        )
+      )
     );
   }
 }
