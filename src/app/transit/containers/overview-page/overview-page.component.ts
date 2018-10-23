@@ -22,25 +22,11 @@ export class OverviewPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log(this.liveService);
     this.liveService.subscribeLive();
-    this.stations$ = this.store.pipe(
-      select(fromTransit.getAllStations),
-      map(this.filterDepartures)
-    );
+    this.stations$ = this.store.pipe(select(fromTransit.getAllStations));
     this.loading$ = this.store.pipe(select(fromTransit.getStationsLoading));
   }
 
   ngOnDestroy(): void {
     this.liveService.stopUpdates();
-  }
-
-  private filterDepartures(stations: Station[]) {
-    return stations.map(station => {
-      return {
-        ...station,
-        departures: station.departures
-          .filter(dep => dep.product === 'UBAHN' || dep.product === 'TRAM')
-          .slice(0, 6)
-      };
-    });
   }
 }

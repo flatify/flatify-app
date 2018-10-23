@@ -6,6 +6,7 @@ import { FlatPageComponent } from './containers/flat-page/flat-page.component';
 import { CreateFlatComponent } from './components/create-flat/create-flat.component';
 import { JoinFlatComponent } from './components/join-flat/join-flat.component';
 import { FlatInfoComponent } from './components/flat-info/flat-info.component';
+import { StationDialogComponent } from './components/station-dialog/station-dialog.component';
 
 const routes: Routes = [
   { path: 'view', component: FlatPageComponent },
@@ -18,7 +19,9 @@ const routes: Routes = [
     FlatPageComponent,
     CreateFlatComponent,
     JoinFlatComponent,
-    FlatInfoComponent
-  ]
+    FlatInfoComponent,
+    StationDialogComponent
+  ],
+  entryComponents: [StationDialogComponent]
 })
 export class FlatModule {}

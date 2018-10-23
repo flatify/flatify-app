@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { State } from '@flatify/transit/reducers';
 import { HttpClient } from '@angular/common/http';
 import { StationActions } from '@flatify/transit/actions';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import * as fromTransit from '../reducers';
+import { filter, first, map, tap } from 'rxjs/operators';
+import { Station } from '@flatify/transit/models/station.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +15,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 export class LiveStationService {
   private timer$ = timer(0, 30000);
   private timerSubscription: Subscription;
-  private watchedStations = [
-    { name: 'Anni-Albers-Strasse', footway: 3, id: 988 },
-    // { name: 'Muenchner Freiheit', id: 500 },
-    { name: 'Alte Heide', footway: 5, id: 530 }
-  ];
+  private watchedStations;
   private makeRequest;
 
   constructor(
@@ -25,7 +24,10 @@ export class LiveStationService {
     private functions: AngularFireFunctions
   ) {
     console.log('Create Service');
-    this.makeRequest = this.functions.httpsCallable('makeWebRequest');
+    this.makeRequest = this.functions.httpsCallable<{ res: Station }>(
+      'makeWebRequest'
+    );
+    this.watchedStations = this.store.pipe(select(fromTransit.getAllStations));
   }
 
   public subscribeLive() {
@@ -37,18 +39,37 @@ export class LiveStationService {
   }
 
   private updateTimes() {
-    this.watchedStations.forEach(station =>
-      this.makeRequest({
-        url: `https://www.mvg.de/fahrinfo/api/departure/${station.id}?footway=${
-          station.footway
-        }`
-      }).subscribe(({ data }) =>
-        this.store.dispatch(
-          new StationActions.UpsertStation({
-            station: { ...data.res, ...station }
-          })
-        )
+    this.watchedStations
+      .pipe(
+        filter((stations: Station[]) => !!stations.length),
+        first()
       )
-    );
+      .subscribe(stations => {
+        stations.forEach(storeStation =>
+          this.makeRequest({
+            url: `https://www.mvg.de/fahrinfo/api/departure/${
+              storeStation.id
+            }?footway=${storeStation.footway}`
+          })
+            .pipe(
+              map(({ data }) => data.res),
+              map((station: Station) => {
+                return {
+                  ...station,
+                  departures: station.departures
+                    .filter(dep => storeStation.products.includes(dep.product))
+                    .slice(0, storeStation.results)
+                };
+              })
+            )
+            .subscribe(data =>
+              this.store.dispatch(
+                new StationActions.UpsertStation({
+                  station: { ...data, id: storeStation.id }
+                })
+              )
+            )
+        );
+      });
   }
 }

@@ -4,6 +4,10 @@ import {
   StationActionsUnion,
   StationActionTypes
 } from '../actions/station.actions';
+import {
+  AppActionsUnion,
+  AppActionTypes
+} from '@flatify/core/actions/app.actions';
 
 export interface State extends EntityState<Station> {
   // additional entities state properties
@@ -19,7 +23,7 @@ export const initialState: State = adapter.getInitialState({
 
 export function reducer(
   state = initialState,
-  action: StationActionsUnion
+  action: StationActionsUnion | AppActionsUnion
 ): State {
   switch (action.type) {
     case StationActionTypes.AddStation: {
@@ -55,6 +59,10 @@ export function reducer(
 
     case StationActionTypes.DeleteStations: {
       return adapter.removeMany(action.payload.ids, state);
+    }
+
+    case AppActionTypes.SetFlat: {
+      return adapter.addAll(action.payload.stations, state);
     }
 
     case StationActionTypes.LoadStations: {

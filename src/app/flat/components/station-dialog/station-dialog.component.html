@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Station Hinzufuegen</h2>
+<mat-dialog-content fxLayout="column">
+  <ng-container *ngIf="!station">
+    <mat-form-field>
+      <input type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto" placeholder="Station suchen">
+      <mat-hint>Die Suchergebnisse sind manchmal etwas verzoegert</mat-hint>
+    </mat-form-field>
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelect($event)">
+      <mat-option *ngFor="let option of stationOptions | async" [value]="option">{{option.name}}</mat-option>
+    </mat-autocomplete>
+  </ng-container>
+  <div *ngIf="station" fxLayout="column">
+    <h2>{{station.name}}</h2>
+    <form [formGroup]="stationForm" fxLayout="column" fxLayoutGap="1rem">
+      <mat-form-field>
+        <mat-select [multiple]="true" placeholder="Verkehrsmittel" formControlName="products">
+          <mat-option *ngFor="let product of station.products" [value]="product">
+            {{product | titlecase}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Welche Verkehrsmittel sind wichtig fuer dich?</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Naechste Abfahrten" formControlName="results">
+        <mat-hint>Wie viele Abfahrten moechtest du sehen</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Fussweg" formControlName="footway">
+        <mat-hint>Wie weit in der Zukunft sollte die Abfahrt mindestens liegen</mat-hint>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutGap="1rem" align="end">
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button mat-raised-button color="primary" [disabled]="stationForm.invalid" (click)="addStation()">Station
+    hinzufuegen
+  </button>
+</mat-dialog-actions>

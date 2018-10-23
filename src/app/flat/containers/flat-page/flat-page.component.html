@@ -1,6 +1,7 @@
 <section>
   <h1>Deine WG</h1>
-  <app-flat-info *ngIf="isAssigned$ | async; else noFLat" [flat]="flat$ | async"></app-flat-info>
+  <app-flat-info (stationAdded)="addStation($event)" (stationRemoved)="removeStation($event)"
+                 *ngIf="isAssigned$ | async; else noFLat" [flat]="flat$ | async"></app-flat-info>
   <ng-template #noFLat>
     <div fxLayout="column" fxLayoutGap="1rem">
       <p>Es sieht aus als waerst du in noch keiner WG im Moment, du hast zwei Moeglichkeiten.

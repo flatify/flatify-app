@@ -1,14 +1,46 @@
-<h2>{{flat.name}}</h2>
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        WG Info
+      </mat-panel-title>
+      <mat-panel-description>
+        {{flat.name}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-<div *ngIf="flat.inviteCode; else codeLoad">
-  <h4>Dein Einladungscode</h4>
-  <pre>{{flat.inviteCode}}</pre>
-  <p>Mit deisem Code koennen deine Mitbewohner dieser WG beitreten</p>
-</div>
+    <div *ngIf="flat.inviteCode; else codeLoad">
+      <h4>Dein Einladungscode</h4>
+      <pre>{{flat.inviteCode}}</pre>
+      <p>Mit deisem Code koennen deine Mitbewohner dieser WG beitreten</p>
+    </div>
 
-<ng-template #codeLoad>
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  <p>Wir generieren deinen Einladungscode gerade, er wird in ein paar Sekunden hier erscheinen</p>
-</ng-template>
+    <ng-template #codeLoad>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <p>Wir generieren deinen Einladungscode gerade, er wird in ein paar Sekunden hier erscheinen</p>
+    </ng-template>
 
-<button mat-stroked-button color="primary" *ngIf="canShare" (click)="shareCode()">Mitbewohner einladen</button>
+    <button (click)="shareCode()" *ngIf="canShare" color="primary" mat-stroked-button>Mitbewohner einladen</button>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        MVG
+      </mat-panel-title>
+      <mat-panel-description>
+        Haltestelleninfos
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let station of flat.stations" mat-list-item>
+        <mat-icon (click)="removeStation(station)" mat-list-icon svgIcon="trash"></mat-icon>
+        <h3 matLine>{{station.name}}</h3>
+        <p matLine>({{station.products.join(', ') | titlecase}})</p>
+        <p matLine>{{station.results}} Ergebnisse | {{station.footway}}min Fussweg</p>
+      </mat-list-item>
+    </mat-list>
+    <mat-action-row>
+      <button (click)="addStation()" mat-stroked-button>Station hinzufuegen</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

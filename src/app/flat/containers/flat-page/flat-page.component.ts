@@ -56,4 +56,22 @@ export class FlatPageComponent implements OnInit {
   finishJoin(code) {
     this.store.dispatch(new FlatActions.JoinFlat(code));
   }
+
+  addStation(station) {
+    this.flat$.pipe(first()).subscribe(flat => {
+      const oldStations = flat.stations || [];
+      const stations = [...oldStations, station];
+      const flatId = flat.id;
+      this.store.dispatch(new FlatActions.SetStations({ stations, flatId }));
+    });
+  }
+
+  removeStation(station) {
+    this.flat$.pipe(first()).subscribe(flat => {
+      const oldStations = flat.stations || [];
+      const stations = oldStations.filter(s => s.id !== station.id);
+      const flatId = flat.id;
+      this.store.dispatch(new FlatActions.SetStations({ stations, flatId }));
+    });
+  }
 }
