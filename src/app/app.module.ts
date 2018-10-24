@@ -21,7 +21,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MainLayoutComponent } from '@flatify/core/conatiners/main-layout/main-layout.component';
 import { AppEffects } from '@flatify/core/effects/app.effects';
 import { FlatEffects } from '@flatify/core/effects/flat.effects';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import {
+  AngularFireFunctionsModule,
+  FunctionsRegionToken
+} from '@angular/fire/functions';
 import { NotFoundPageComponent } from '@flatify/core/conatiners/not-found-page/not-found-page.component';
 
 const routes: Routes = [
@@ -72,12 +75,14 @@ const routes: Routes = [
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule.enablePersistence({
+      experimentalTabSynchronization: true
+    }),
     AngularFireFunctionsModule,
     PublicModule,
     CoreModule
   ],
-  providers: [],
+  providers: [{ provide: FunctionsRegionToken, useValue: 'us-central1' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

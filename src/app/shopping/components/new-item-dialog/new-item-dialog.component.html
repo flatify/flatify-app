@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Neuer Eintrag</h2>
+<mat-dialog-content fxLayout="column">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Beschreibung" [formControl]="nameCtrl">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutGap="1rem" align="end">
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button mat-raised-button color="primary" (click)="saveItem()" [disabled]="nameCtrl.invalid">Eintrag specihern
+  </button>
+</mat-dialog-actions>

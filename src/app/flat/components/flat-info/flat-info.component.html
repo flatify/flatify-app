@@ -32,7 +32,7 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-list>
-      <mat-list-item *ngFor="let station of flat.stations" mat-list-item>
+      <mat-list-item *ngFor="let station of flat.items" mat-list-item>
         <mat-icon (click)="removeStation(station)" mat-list-icon svgIcon="trash"></mat-icon>
         <h3 matLine>{{station.name}}</h3>
         <p matLine>({{station.products.join(', ') | titlecase}})</p>

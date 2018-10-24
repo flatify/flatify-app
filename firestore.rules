@@ -3,6 +3,9 @@ service cloud.firestore {
     match flats/{flatId} {
      allow read, write: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.flatId == flatId;
     }
+    match shoppingItems/{itemId} {
+         allow read, write: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.flatId == resource.data.flatId;
+        }
     match users/{userId} {
       allow write: if request.auth.uid == userId;
       allow read: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.flatId == resource.data.flatId;

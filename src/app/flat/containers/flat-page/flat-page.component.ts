@@ -59,7 +59,7 @@ export class FlatPageComponent implements OnInit {
 
   addStation(station) {
     this.flat$.pipe(first()).subscribe(flat => {
-      const oldStations = flat.stations || [];
+      const oldStations = flat.items || [];
       const stations = [...oldStations, station];
       const flatId = flat.id;
       this.store.dispatch(new FlatActions.SetStations({ stations, flatId }));
@@ -68,7 +68,7 @@ export class FlatPageComponent implements OnInit {
 
   removeStation(station) {
     this.flat$.pipe(first()).subscribe(flat => {
-      const oldStations = flat.stations || [];
+      const oldStations = flat.items || [];
       const stations = oldStations.filter(s => s.id !== station.id);
       const flatId = flat.id;
       this.store.dispatch(new FlatActions.SetStations({ stations, flatId }));

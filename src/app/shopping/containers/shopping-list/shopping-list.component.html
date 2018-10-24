@@ -1,0 +1,12 @@
+<section>
+  <h1>Einkaufsliste</h1>
+  <button (click)="addItem()" class="fab-button" color="accent" mat-fab>
+    <mat-icon svgIcon="plus"></mat-icon>
+  </button>
+  <mat-selection-list (selectionChange)="updateItem($event)">
+    <mat-list-option *ngFor="let item of items$ | async as items" [selected]="false"
+                     [value]="item">{{item.text}}</mat-list-option>
+    <mat-list-option *ngFor="let item of completedItems | async as items" [selected]="true"
+                     [value]="item">{{item.text}}</mat-list-option>
+  </mat-selection-list>
+</section>
